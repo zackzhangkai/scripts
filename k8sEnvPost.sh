@@ -17,7 +17,6 @@ ls /root/.krew || \
   "$KREW" update
 )
 export PATH="${PATH}:/root/.krew/bin"
-egrep "/root/.krew/bin" /root/.bashrc || echo "export PATH="${PATH}:/root/.krew/bin"" >> /root/.bashrc
 
 kubectl krew list | grep ns || kubectl krew install ns
 
@@ -31,7 +30,9 @@ if [ -n "$1" ]; then
         ls /root/.oh-my-zsh/plugins/zsh-autosuggestions &> /dev/null || ( cd /root/.oh-my-zsh/plugins/ && git clone https://github.com/zsh-users/zsh-autosuggestions.git )
 	sed -i 's/^ZSH_THEME=.*/ZSH_THEME="maran"/' /root/.zshrc
 	sed -i 's/^plugins=.*/plugins=(git zsh-autosuggestions)/' /root/.zshrc
-	egrep -w "source <(kubectl completion zsh)" /root/.zshrc  || echo "source <(kubectl completion zsh)" >> /root/.zshrc
+	egrep -w "kubectl completion zsh" /root/.zshrc  || echo "source <(kubectl completion zsh)" >> /root/.zshrc
+        egrep -w "alias k=kubectl" /root/.zshrc || echo "alias k=kubectl" >> /root/.zshrc
+        egrep "complete -F __start_kubectl k" /root/.zshrc || echo "complete -F __start_kubectl k" >> /root/.zshrc
     else
         echo "The option should be "zsh""
     fi

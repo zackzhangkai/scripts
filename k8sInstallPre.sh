@@ -23,4 +23,7 @@ yum install -y yum-utils docker-ce docker-ce-cli containerd.io && \
 
 systemctl start docker && systemctl enable docker
 
+setenforce 0
+
+sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
 

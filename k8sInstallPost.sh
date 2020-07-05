@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+#  curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPost.sh | bash
+# OR: 
+#  curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPost.sh > k8sInstallPost.sh && echo yes | sh k8sInstallPost.sh zsh
+#
 
 set -e 
 set -o 
@@ -23,10 +28,8 @@ kubectl krew list | grep ns || kubectl krew install ns
 # install zsh
 if [ -n "$1" ]; then
     if [ "$1" == "zsh" ]; then
-	if [ ! -f /root/.zshrc ]; then
-	    yum -y install zsh
-	    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	fi
+        yum -y install zsh
+	ls /root/.oh-my-zsh &> /dev/null || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
         ls /root/.oh-my-zsh/plugins/zsh-autosuggestions &> /dev/null || ( cd /root/.oh-my-zsh/plugins/ && git clone https://github.com/zsh-users/zsh-autosuggestions.git )
 	sed -i 's/^ZSH_THEME=.*/ZSH_THEME="maran"/' /root/.zshrc
 	sed -i 's/^plugins=.*/plugins=(git zsh-autosuggestions)/' /root/.zshrc

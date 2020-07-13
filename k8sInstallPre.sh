@@ -4,7 +4,7 @@ set -e
 set -o 
 set -x 
 
-yum install -y bash-completion ebtables ipset tmux nfs-utils socat wget conntrack ceph-common glusterfs-client  && \
+yum install -y yum-utils bash-completion ebtables ipset tmux nfs-utils socat wget conntrack ceph-common glusterfs-client  && \
 
 yum remove docker \
                   docker-client \

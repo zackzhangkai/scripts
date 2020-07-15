@@ -27,7 +27,7 @@ curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPos
 
 1. 通过脚本统一配置免密登陆
 ```
-for i in {2..105};do sshpass -p "Zhu88jie" ssh-copy-id 192.168.11.$i ;done
+for i in {2..105};do sshpass -p "xxx" ssh-copy-id 192.168.11.$i ;done
 ```
 
 2. 换yum源为阿里镜像源

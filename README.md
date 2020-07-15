@@ -12,7 +12,7 @@ curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPos
 
 
 
-# 在国内安装100个节点的k8s集群
+# 在国内安装100个节点的k8s集群之环境配置
 
 接到了个任务，需要在pek3b安装100个节点的K8s集群。由于之前机器是在ap2a，所以镜像都没有问题。现在在国内安装，镜像成了大问题，需要解决以下问题：
 ```

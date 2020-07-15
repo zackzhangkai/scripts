@@ -1,15 +1,20 @@
 # Before install K8s
 
+对于ap2a直接执行这个脚本完成Kubesphere安装前的初始化：
 ```
 curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPre.sh | bash
 ```
 
 # After install K8s
 
+安装完k8s之后，安装自动补全等工具。
 ```
 curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPost.sh | bash
 ```
-
+如果是想把shell换成zsh，执行：
+```
+curl https://raw.githubusercontent.com/zackzhangkai/scripts/master/k8sInstallPost.sh > k8sInstallPost.sh && echo yes | sh k8sInstallPost.sh zsh  #执行过程中会有个要求输入yes的确认信息，如果终断后，再次运行这个脚本。执行完后，重新打开shell连上即可。
+```
 
 
 # 在国内安装100个节点的k8s集群之环境配置

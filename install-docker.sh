@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# 可以直接执行 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
 set -e
 
 docker_version=19.03.8
